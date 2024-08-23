@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "a56985f3-f00a-42bb-a3ff-3dcde36000b4",
+		"name": "SANDBOX-Participant_APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25594058"
+	},
+	"item": [
+		{
+			"name": "Get Policies",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "bearer_auth",
+						"value": "Bearer {{Auth}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identifiertype\": \"MobileNo\",//AbhaNumber|MemberId|MobileNo\r\n    \"identifiervalue\": \"1234567890\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apisbx.abdm.gov.in/pmjay/sbxhcx/participanthcxservice/participant/get/policies",
+					"protocol": "https",
+					"host": [
+						"apisbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"pmjay",
+						"sbxhcx",
+						"participanthcxservice",
+						"participant",
+						"get",
+						"policies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delink Abha",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "bearer_auth",
+						"value": "Bearer {{Auth}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestid\": \"5f314cf3-b24f-4cde-98e3-585b5d7d0bc0\",//UUID\r\n    \"payerid\": \"XXXXX@hcx\",//Participant id of the insurance compsny for which ben has the policy\r\n    \"memberid\": \"CustXXXXX085\", //Policy Holder Id \r\n    \"processingid\":\"XXXXX@hcx\", //Participant id of the TPA under which the IC is processing\r\n    \"policies\": [\r\n        {\r\n            \"productid\": \"Prod01\",\r\n            \"productname\": \"Active Asure\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apisbx.abdm.gov.in/pmjay/sbxhcx/participanthcxservice/participant/delink/abha/policy",
+					"protocol": "https",
+					"host": [
+						"apisbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"pmjay",
+						"sbxhcx",
+						"participanthcxservice",
+						"participant",
+						"delink",
+						"abha",
+						"policy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Certs",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "bearer_auth",
+						"value": "Bearer {{Auth}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"participantid\": \"1XXXXXXX2@hcx\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apisbx.abdm.gov.in/pmjay/sbxhcx/participanthcxservice/fetch/certs",
+					"protocol": "https",
+					"host": [
+						"apisbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"pmjay",
+						"sbxhcx",
+						"participanthcxservice",
+						"fetch",
+						"certs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Participant List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "bearer_auth",
+						"value": "Bearer {{Auth}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\": \"PAYER\",//PAYER|PROVIDER|TPA\r\n    \"fromdate\": \"10/05/2023\", //dd/MM/yyyy format only\r\n    \"todate\": \"11/05/2024\" //dd/MM/yyyy format only\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apisbx.abdm.gov.in/pmjay/sbxhcx/participanthcxservice/fetch/participants/list",
+					"protocol": "https",
+					"host": [
+						"apisbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"pmjay",
+						"sbxhcx",
+						"participanthcxservice",
+						"fetch",
+						"participants",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Link Abha",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "bearer_auth",
+						"value": "Bearer {{Auth}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestid\": \"e011c4a2-XXXX-XXXX-XXXX-50d06af51555\",//UUID\n    \"abhanumber\": \"112233XXXXXX12\",//Abha Number of Policy Holder\n    \"mobilenumber\": \"1234567890\",//Mobile Number of Policy Holder\n    \"payerid\": \"XXXXX@hcx\",//Participant id of the insurance compsny for which ben has the policy\n    \"memberid\": \"Cust0XXXXX085\", //Policy Holder Id \n    \"processingid\":\"XXXXX@hcx\", //Participant id of the TPA under which the IC is processing\n    \"policies\": [\n        {\n            \"productid\": \"ProdXX01\",\n            \"productname\": \"Active Asure\"\n        },{\n            \"productid\": \"ProdXX02\",\n            \"productname\": \"Life Insurance Policy\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://apisbx.abdm.gov.in/pmjay/sbxhcx/participanthcxservice/participant/link/abha/policy",
+					"protocol": "https",
+					"host": [
+						"apisbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"pmjay",
+						"sbxhcx",
+						"participanthcxservice",
+						"participant",
+						"link",
+						"abha",
+						"policy"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
